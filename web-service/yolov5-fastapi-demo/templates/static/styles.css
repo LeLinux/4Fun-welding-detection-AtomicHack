@@ -1,0 +1,317 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Medium.eot');
+    src: url('fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Montserrat-Medium.woff') format('woff'),
+        url('fonts/Montserrat-Medium.svg#Montserrat-Medium') format('svg');
+    src: url("fonts/Montserrat-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    font-family: "Montserrat";
+    font-size: 18px;
+    background-color: rgb(198, 227, 253);
+}
+
+#sidebar{
+    background-color: rgb(6, 110, 185);
+    max-height: 80%;
+    border: solid rgb(2, 94, 161) 3px;
+}
+
+.error{
+    border: solid rgb(108, 172, 228) 2px;
+    background-color: white;
+    margin-top: 2%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.error_type{
+    color: rgb(2, 34, 61);
+    float: left;
+    width: 84%;
+}
+
+.error_nums{
+    float: left;
+    width: 15%;
+    text-align: right;
+    padding-right: 1%;
+}
+
+#statistic_name{
+    color: rgb(223, 236, 247);
+    font-size: 24px;
+    text-align: center;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+#photo_selector_name{
+    color: rgb(223, 236, 247);
+    font-size: 24px;
+    text-align: center;
+    padding: 2%;
+}
+
+#file_selector{
+    border: solid rgb(108, 172, 228) 2px;
+    text-align: center;
+    background-color: rgb(240, 248, 255);
+    border-radius: 10px;
+    padding: 15%;
+    padding-bottom: 13%;
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    max-height: 80vh;
+    
+}
+
+.error_row{
+    min-width: 25%;
+    border: solid rgb(108, 172, 228) 2px;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    border-radius: 10px;
+    padding-left: 2%;
+    color:red;
+}
+
+.error_percent{
+    margin-top: 1%;
+}
+
+
+#procent_collab{
+    text-align: center;
+    font-size: 24px;
+    color: rgb(223, 236, 247);
+}
+
+#diagram{
+    padding-top: 2%;
+}
+
+
+#camera{
+    float: left;
+    width: 50%;
+    margin-bottom: 5%;
+}
+
+#folder{
+    float: left;
+    width: 50%;
+}
+
+#icons{
+    padding-bottom: 7%;
+}
+
+
+#analyzed_photo{
+    float: left;
+}
+
+#finished_image{
+    padding: 2%;
+}
+
+#problems{
+    color: rgb(223, 236, 247);
+    text-align: center;
+    font-size: 24px;
+}
+
+.error_found{
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 1%;
+}
+
+#download_result{
+    border: solid rgb(108, 172, 228) 2px;
+    text-align: center;
+    background-color: white;
+    font-size: 24px;
+    margin-top: 5%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border-radius: 10px;
+}
+
+.photo{
+    background-color: rgb(6, 110, 185);
+    border: solid rgb(2, 94, 161) 3px;
+}
+
+@media screen and (min-width: 950px) and (max-width: 1800px){
+
+    body{
+        height: 100vh;
+    }
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      .clearfix { display: inline-block; }
+      /* start commented backslash hack \*/
+      * html .clearfix { height: 1%; }
+      .clearfix { display: block; }
+    
+
+    .photo{
+        width: 64%;
+        float: left;
+        margin-left: 1%;
+        margin-top: 2%;
+        padding: 1%;
+        border-radius: 15px;
+    }
+
+    #sidebar{
+        width: 28%;
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1%;
+        margin-top: 2%;
+        border-radius: 15px;
+    }
+    
+    footer{
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #mobile_footer{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 950px) {
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      .clearfix { display: inline-block; }
+      /* start commented backslash hack \*/
+      * html .clearfix { height: 1%; }
+      .clearfix { display: block; }
+    
+
+    #content_container{
+        width: 98%;
+        display:flex;
+        flex-direction: column-reverse;
+    }
+
+    .photo{
+        margin-left: 1.5%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 2%;
+        border-radius: 15px;
+    }
+    
+    #sidebar{
+        margin-left: 1.5%;
+        padding: 1%;
+        margin-top: 2%;
+        padding: 2%;
+        border-radius: 15px;
+        margin-bottom: 7%;
+        padding-bottom: 2.2%;
+    }
+    
+
+    #mobile_footer{
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1%;
+
+    }
+
+    
+}
+
+
+@media screen and (min-width: 1800px) {
+
+    body{
+        font-size: 20px;
+        height: 100vh;
+    }
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      .clearfix { display: inline-block; }
+      /* start commented backslash hack \*/
+      * html .clearfix { height: 1%; }
+      .clearfix { display: block; }
+    
+
+    .photo{
+        width: 34%;
+        float: left;
+        margin-left: 1%;
+        margin-top: 2%;
+        padding: 1%;
+        border-radius: 15px;
+    }
+
+    #sidebar{
+        width: 15%;
+        float: left;
+        margin-left: 25%;
+        margin-right: 1%;
+        padding: 1%;
+        margin-top: 2%;
+        border-radius: 15px;
+    }
+    
+    footer{
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #mobile_footer{
+        display: none;
+    }
+    
+}

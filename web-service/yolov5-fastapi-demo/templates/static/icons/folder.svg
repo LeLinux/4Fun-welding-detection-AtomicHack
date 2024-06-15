@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg311"
+   sodipodi:docname="folder.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs315">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1551">
+      <stop
+         style="stop-color:#000080;stop-opacity:1;"
+         offset="0"
+         id="stop1547" />
+      <stop
+         style="stop-color:#00ffff;stop-opacity:1"
+         offset="1"
+         id="stop1549" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1551"
+       id="linearGradient1553"
+       x1="17.201109"
+       y1="26.815386"
+       x2="4.0854335"
+       y2="-2.2265503"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview313"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="21.3125"
+     inkscape:cx="7.483871"
+     inkscape:cy="12.645161"
+     inkscape:window-width="1006"
+     inkscape:window-height="940"
+     inkscape:window-x="1932"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg311" />
+  <path
+     style="fill:url(#linearGradient1553);fill-opacity:1;stroke:none;stroke-width:1.1718"
+     d="M 0.85,1.4212577 V 2.574113 6.0326788 7.1855342 14.102666 15.255522 H 15.142671 V 14.102666 6.0326788 4.8798236 3.7269683 H 9.196696 l -2.382111,-2.3057106 -0.00931,0.00901 v -0.00901 H 2.0410559 Z M 2.0410559,2.574113 H 6.319087 L 7.512469,3.7269683 H 6.80528 v 0.00901 L 6.79598,3.7269683 4.4138687,6.0326788 H 2.0410559 Z m 0,4.6114212 H 13.951616 V 14.102666 H 2.0410559 Z"
+     id="rect4079" />
+</svg>

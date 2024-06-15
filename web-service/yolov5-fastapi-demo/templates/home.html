@@ -1,0 +1,629 @@
+<!-- This is a Jinja2 Template that extends layout.html
+Implements a simple Bootstrap 5 form submission interface for YOLOv5 detection.
+-->
+
+{% extends "layout.html" %}
+
+{% block title %}  {% endblock %}
+
+{% block content %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>@font-face {
+      font-family: 'Montserrat';
+      src: {{url_for("static", path = 'static/fonts/Montserrat-Medium.eot') }};
+      src: {{url_for("static", path = 'static/fonts/Montserrat-Medium.woff') }} format('woff'),
+      src: {{url_for("static", path = 'static/fonts/Montserrat-Medium.ttf') }} format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+  
+  body{
+      font-family: "Montserrat";
+      font-size: 18px;
+      background-color: rgb(198, 227, 253);
+  }
+  
+  #sidebar{
+      background-color: rgb(6, 110, 185);
+      max-height: 80%;
+      border: solid rgb(2, 94, 161) 3px;
+  }
+  
+  .error{
+      border: solid rgb(108, 172, 228) 2px;
+      background-color: white;
+      margin-top: 2%;
+      padding: 2%;
+      border-radius: 10px;
+  }
+  
+  .error_type{
+      color: rgb(2, 34, 61);
+      float: left;
+      width: 84%;
+  }
+  
+  .error_nums{
+      float: left;
+      width: 15%;
+      text-align: right;
+      padding-right: 1%;
+  }
+  
+  #statistic_name{
+      color: rgb(223, 236, 247);
+      font-size: 24px;
+      text-align: center;
+      padding: 2%;
+      border-radius: 5px;
+  }
+  
+  #photo_selector_name{
+      color: rgb(223, 236, 247);
+      font-size: 24px;
+      text-align: center;
+      padding: 2%;
+  }
+  
+  #file_selector{
+      border: solid rgb(108, 172, 228) 2px;
+      text-align: center;
+      background-color: rgb(240, 248, 255);
+      border-radius: 10px;
+      padding: 15%;
+      padding-bottom: 13%;
+      margin-top: 2%;
+      margin-bottom: 0.5%;
+      max-height: 80vh;
+      
+  }
+  
+  .error_row{
+      min-width: 25%;
+      border: solid rgb(108, 172, 228) 2px;
+      background-color: white;
+      padding: 2%;
+      margin-top: 2%;
+      border-radius: 10px;
+      padding-left: 2%;
+      color:red;
+  }
+  
+  .error_percent{
+      margin-top: 1%;
+  }
+  
+  
+  #procent_collab{
+      text-align: center;
+      font-size: 24px;
+      color: rgb(223, 236, 247);
+  }
+  
+  #diagram{
+      padding-top: 2%;
+  }
+  
+  
+  #camera{
+      float: left;
+      width: 50%;
+      margin-bottom: 5%;
+  }
+  
+  #folder{
+      float: left;
+      width: 50%;
+  }
+  
+  #icons{
+      padding-bottom: 7%;
+  }
+  
+  
+  #analyzed_photo{
+      float: left;
+  }
+  
+  #finished_image{
+      padding: 2%;
+  }
+  
+  #problems{
+      color: rgb(223, 236, 247);
+      text-align: center;
+      font-size: 24px;
+  }
+  
+  .error_found{
+      text-align: center;
+      font-size: 24px;
+      padding-bottom: 1%;
+  }
+  
+  #download_result{
+      border: solid rgb(108, 172, 228) 2px;
+      text-align: center;
+      background-color: white;
+      font-size: 24px;
+      margin-top: 5%;
+      padding-top: 4%;
+      padding-bottom: 4%;
+      border-radius: 10px;
+  }
+  
+  .photo{
+      background-color: rgb(6, 110, 185);
+      border: solid rgb(2, 94, 161) 3px;
+  }
+  
+  @media screen and (min-width: 950px) and (max-width: 1800px){
+  
+      body{
+          height: 100vh;
+      }
+  
+      .clearfix:after {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
+        .clearfix { display: inline-block; }
+        /* start commented backslash hack \*/
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; }
+      
+  
+      .photo{
+          width: 64%;
+          float: left;
+          margin-left: 1%;
+          margin-top: 2%;
+          padding: 1%;
+          border-radius: 15px;
+      }
+  
+      #sidebar{
+          width: 28%;
+          float: left;
+          margin-left: 1%;
+          margin-right: 1%;
+          padding: 1%;
+          margin-top: 2%;
+          border-radius: 15px;
+      }
+      
+      footer{
+          margin-left: 1%;
+          margin-right: 1%;
+          padding: 1%;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          position: absolute;
+          bottom: 0;
+      }
+  
+      #mobile_footer{
+          display: none;
+      }
+  
+  }
+  
+  
+  @media screen and (max-width: 950px) {
+  
+      .clearfix:after {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
+        .clearfix { display: inline-block; }
+        /* start commented backslash hack \*/
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; }
+      
+  
+      #content_container{
+          width: 98%;
+          display:flex;
+          flex-direction: column-reverse;
+      }
+  
+      .photo{
+          margin-left: 1.5%;
+          margin-top: 2%;
+          margin-bottom: 2%;
+          padding: 2%;
+          border-radius: 15px;
+      }
+      
+      #sidebar{
+          margin-left: 1.5%;
+          padding: 1%;
+          margin-top: 2%;
+          padding: 2%;
+          border-radius: 15px;
+          margin-bottom: 7%;
+          padding-bottom: 2.2%;
+      }
+      
+  
+      #mobile_footer{
+          margin-left: 1%;
+          margin-right: 1%;
+          padding: 1%;
+  
+      }
+  
+      
+  }
+  
+  
+  @media screen and (min-width: 1800px) {
+  
+      body{
+          font-size: 20px;
+          height: 100vh;
+      }
+  
+      .clearfix:after {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
+        .clearfix { display: inline-block; }
+        /* start commented backslash hack \*/
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; }
+      
+  
+      .photo{
+          width: 34%;
+          float: left;
+          margin-left: 1%;
+          margin-top: 2%;
+          padding: 1%;
+          border-radius: 15px;
+      }
+  
+      #sidebar{
+          width: 15%;
+          float: left;
+          margin-left: 25%;
+          margin-right: 1%;
+          padding: 1%;
+          margin-top: 2%;
+          border-radius: 15px;
+      }
+      
+      footer{
+          margin-left: 1%;
+          margin-right: 1%;
+          padding: 1%;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          position: absolute;
+          bottom: 0;
+      }
+  
+      #mobile_footer{
+          display: none;
+      }
+      
+  }
+  </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+
+        <div id="content_container" class="clearfix">
+
+            <div id="sidebar">
+
+                <div id="statistic_name">
+                    Статистика
+                </div>
+
+                <div id="error_types">
+                    <div class="error clearfix">
+                        <div class="error_type">
+                            <details>
+                                <summary>ADJ</summary>
+                                <p>недостаточная защита от окисления металла, 
+                                    неправильная подача проволоки или электрода, 
+                                    неправильная настройка сварочного оборудования</p>
+                            </details>
+                        </div>
+                        <div class="error_nums">
+                            NUM
+                        </div>
+                    </div>
+                    
+                    <div class="error clearfix">
+                        <div class="error_type">
+                            <details>
+                                <summary>INT</summary>
+                                <p>Не равномерный нагрев, низкая пластичность металла, 
+                                    неправильный авбор тепловой мощности </p>
+                            </details>
+                        </div>
+                        <div class="error_nums">
+                            NUM
+                        </div>
+                    </div>
+                    
+                    <div class="error clearfix">
+                        <div class="error_type">
+                            <details>
+                                <summary>GEO</summary>
+                                <p>Большой сварочный ток, неправильный наклон электрода, 
+                                    слишком длинная дуга</p>
+                            </details>
+                        </div>
+                        <div class="error_nums">
+                            NUM
+                        </div>
+                    </div>
+                    
+                    <div class="error clearfix">
+                        <div class="error_type">
+                            <details>
+                                <summary>PRO</summary>
+                                <p>Неправильная скорость резания, 
+                                    недостаточная охлаждение или смазка, 
+                                    неправильный выбор инструментов </p>
+                            </details>
+                        </div>
+                        <div class="error_nums">
+                            NUM
+                        </div>
+                    </div>
+                    
+                    <div class="error clearfix">
+                        <div class="error_type">
+                            <details>
+                                <summary>NON</summary>
+                                <p> Завышенная скорость варки, недостаточный варочный ток, 
+                                    слишком маленький угол скоса вертекальных кромок</p>
+                            </details>
+                        </div>
+                        <div class="error_nums">
+                            NUM
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+        
+                <div id="procent_collab">Процентное соотношение</div>
+
+                <div id="diagram">
+                    <div class="error_row clearfix" id="row_type1" >
+                        
+                        <div id="error_type1_row">ADJ</div>
+                        <div id="percent1" class="error_percent">NUM%</div>
+                    </div>
+                    
+                    <div class="error_row clearfix" id="row_type2">
+                        <div id="error_type2_row">INT</div>
+                        <div id="percent2" class="error_percent">NUM%</div>
+                    </div>
+                    <div class="error_row clearfix" id="row_type3">
+                        <div id="error_type3_row">GEO</div>
+                        <div id="percent3" class="error_percent">NUM%</div>
+                    </div>
+                    <div class="error_row clearfix" id="row_type4">
+                        <div id="error_type4_row">PRO</div>
+                        <div id="percent4" class="error_percent">NUM%</div>
+                    </div>
+                    <div class="error_row clearfix" id="row_type5">
+                        <div id="error_type5_row">NON</div>
+                        <div id="percent5" class="error_percent">NUM%</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="photo_selector" class="photo">
+                <!-- style="display: none;" -->
+                <div id="photo_selector_name">
+                    Фото для анализа
+                </div>
+                
+                <div id="icons" class="clearfix">
+                    <input id="file_list" type="file" style="display: none" accept="image/*"/>
+                    <input id="cameraInput" type="file" name="image" accept="image/*" capture="environment" style="display: none;">
+                    <div id="camera"><img src="icons/camera.svg" alt="" width="54%"><br>take a photo</div>
+                    
+                    <div id="folder"><img src="icons/folder.svg" alt="" width="54%" ><br>select photo </div>
+                </div>
+
+                <div id="file_selector">
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <div class="my-2">
+                          <label for="file_list" class="form-label">Upload Images</label>
+                          <input class="form-control w-auto" type="file" name="file_list" id="file_list" multiple>
+                        </div>                   
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                      </form>
+                    <div id="loading" style="display: none;">
+                        <img src="icons/loading.gif" alt="" width="25%"><br><br>
+                        Изображение обрабатывается
+                    </div>
+                    <img src="" alt="" id="test">
+                </div>
+
+            </div>
+
+            <div id="analyzed_photo" class="photo" >
+
+                <div id="photo_selector_name">
+                    Результат анализа
+                </div>
+
+                <div id="finished_image">
+                    <img src="imgs/tmp_img.jpg" alt="" style="border-radius: 10px;" width="100%">
+                </div>
+
+                <hr>
+
+                <div id="problems">
+                    Обнаруженные дефекты
+                </div>
+
+                <div id="error_types">
+                    <div class="error clearfix" id="found_error1">
+                        <div class="error_found">
+                            Дефект "ADJ"
+                        </div>
+                        <div id="fixmethods1">
+                            <details>
+                                <summary>Методы исправления</summary>
+                                <p>Тщательная зачистка стыка с последующей его заваркой.</p>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <div class="error clearfix" id="found_error2">
+                        <div class="error_found">
+                            Дефект "INT"
+                        </div>
+                        <div id="fixmethods2">
+                            <details>
+                                <summary>Методы исправления</summary>
+                                <p>Вырезать до достижения основного металла, после чего по-новому заварить.</p>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="error clearfix" id="found_error3">
+                        <div class="error_found">
+                            Дефект "GEO"
+                        </div>
+                        <div id="fixmethods3">
+                            <details>
+                                <summary>Методы исправления</summary>
+                                <p>Раскрывающийся текст</p>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="error clearfix" id="found_error4">
+                        <div class="error_found">
+                            Дефект "PRO"
+                        </div>
+                        <div id="fixmethods4">
+                            <details>
+                                <summary>Методы исправления</summary>
+                                <p>Раскрывающийся текст</p>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="error clearfix" id="found_error5">
+                        <div class="error_found">
+                            Дефект "NON"
+                        </div>
+                        <div id="fixmethods5">
+                            <details>
+                                <summary>Методы исправления</summary>
+                                <p>Раскрывающийся текст</p>
+                            </details>
+                        </div>
+                    </div>
+                </div> 
+ 
+                <div id="download_result"> 
+                    Скачать отчет
+                </div>  
+  
+            </div>   
+
+        </div>
+          
+        </div> 
+
+    </div>  
+
+
+    <div id="footer">(C) Atomic Hack 2.0 2024. 4FUN</div>
+</body>
+<script>const camera_button = document.getElementById("camera");
+  const folder_button = document.getElementById("folder");
+  const test_img = document.getElementById('test');
+  const file_dialog = document.getElementById("file_dialog");
+  const camera_input = document.getElementById("cameraInput");
+  
+  
+  
+  
+  folder_button.addEventListener("click",
+    (e) => {
+      if (file_dialog) {
+        file_dialog.click();
+      }
+      e.preventDefault(); // prevent navigation to "#"
+    },
+    false,)
+  
+  
+  file_dialog.addEventListener("change", handleFiles, false);  
+  function handleFiles(){
+  
+      // test_img.src = URL.createObjectURL(this.files[0]);
+      // $.ajax({
+      //   url: "/",
+      //   method: "post",
+      //   dataType: "multipart/form-data",
+      //   data: this.files[0],
+      //   success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+		  //     alert(data);            /* В переменной data содержится ответ от index.php. */
+	    //   }
+
+      // })
+  
+      alert(1);
+  }
+      
+  
+  camera_button.addEventListener("click",
+      (e) => {
+          if(camera_input){
+              camera_input.click();
+          }
+          e.preventDefault();
+      },
+      false,
+  );
+  
+  camera_input.addEventListener("change", handlePhoto, false);  
+  function handlePhoto(){
+  
+      test_img.src = URL.createObjectURL(this.files[0]);
+  
+  }</script></html>
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,24 @@
+<!-- This is a Jinja2 Template that extends layout.html
+Implements a drag & drop file upload interface for YOLOv5 detection.
+
+Once a user image is uploaded, this code AJAX requests the image, model name
+and image size to the FastAPI server's /detect endpoint. The server sends
+the list of bounding boxes back, and the image + bounding boxes + labels
+are rendered inside the canvas element.
+
+Bounding box labels' height above the bounding box are adjusted to not overlap
+with eachother in complicated scenes (such as a busy city street).
+
+TODO:
+  - Improve efficiency of the algorithm for making box labels not overlap in crowded scenes
+-->
+
+{% extends "layout.html" %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
