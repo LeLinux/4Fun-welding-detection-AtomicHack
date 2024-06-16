@@ -1,3 +1,3 @@
 class Config:
-    TOKEN = "7387070512:AAEiNPK54_BIpHzRZgL90CZwzpmgQ6MYdwc"
+    TOKEN = "YOUR TOKEN"
     REPOSITORY = None
