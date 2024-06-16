@@ -11,3 +11,6 @@
   
 > pip3 install -r requirements.txt  
 > python3 main.py  
+
+![image](https://github.com/LeLinux/4Fun-welding-detection-AtomicHack/assets/115425862/0166f343-4eab-49b7-802f-691a7f78a223)
+  
