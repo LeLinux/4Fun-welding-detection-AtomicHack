@@ -8,6 +8,8 @@
 
 
 # [BONUS] Run tg bot  
+
+Open config.py and put your telegram-bot api-token  
   
 > pip3 install -r requirements.txt  
 > python3 main.py  
