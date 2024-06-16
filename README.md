@@ -1,3 +1,6 @@
+В силу ограничений хостинга могут наблюдаться просадки в скорости загрузки данных  
+  
+
 # Run  
   
 > pip3 install -r web-service/yolov5-fastapi-demo/requirements.txt  
